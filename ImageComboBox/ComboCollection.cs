@@ -64,5 +64,10 @@ namespace ImageComboBox
         {
             return (ItemsBase.Contains(value));
         }
+
+        public new void Clear()
+        {
+            this.ItemsBase.Clear();
+        }
     }
 }
