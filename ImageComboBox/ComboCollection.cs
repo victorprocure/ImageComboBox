@@ -11,6 +11,7 @@ namespace ImageComboBox
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Linq.Expressions;
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
@@ -63,6 +64,13 @@ namespace ImageComboBox
         public bool Contains(ComboBoxItem value)
         {
             return (ItemsBase.Contains(value));
+        }
+
+        public int FindText(string search)
+        {
+            var enumerable = this.ItemsBase.Cast<ComboBoxItem>().Where(c => c.Value.ToString() == search).First();
+
+            return this.ItemsBase.IndexOf(enumerable);
         }
 
         public new void Clear()
